@@ -1,5 +1,5 @@
 
-CONFIG = $(HOME)/.config/nvim
+CONFIG = $(addprefix $(HOME)/.config/, nvim i3 i3status)
 RCS = $(HOME)/.zshrc
 TARGETS = $(CONFIG) $(RCS)
 
@@ -10,4 +10,7 @@ $(HOME)/.config/%: src/.config/%
 
 $(HOME)/%: src/%
 	cp $< $@
+
+clean:
+	rm -rf $(TARGETS)
 

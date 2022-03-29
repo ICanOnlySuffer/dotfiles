@@ -3,7 +3,8 @@
 
 LS_COLORS='di=0;36:ex=1;36:ln=1;37'
 alias ptree='ptree -SndPcO'
-alias ls='ls --color=auto'
+alias tree='tree --dirsfirst -v'
+alias ls='ls --group-directories-first --color=auto'
 
 HISTFILE=~/.zsh-history
 HISTSIZE=512
@@ -46,8 +47,7 @@ yay () {aur $1 && cd $1 && makepkg -sirc && cd ..}
 #-- DISPLAY --#
 
 xdisplay=`xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1`
-alias light-100="$ROOTER light -S 100"
-alias set-brightness="xrandr --output $xdisplay --brightness"
+alias light="$ROOTER light -S"
 
 #-- FUN --#
 
