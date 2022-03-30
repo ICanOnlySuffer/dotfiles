@@ -1,7 +1,7 @@
 
 #-- ENVIRONMENT --#
 
-LS_COLORS='di=0;36:ex=1;36:ln=1;37'
+export LS_COLORS='di=0;36:ex=1;36:ln=1;37'
 alias ptree='ptree -SndPcO'
 alias tree='tree --dirsfirst -v'
 alias ls='ls --group-directories-first --color=auto'
@@ -42,7 +42,7 @@ alias undo='git reset --soft HEAD~1'
 
 alias apr='asp export'
 aur () {git clone https://aur.archlinux.org/$1}
-yay () {aur $1 && cd $1 && makepkg -sirc && cd ..}
+# yay () {aur $1 && cd $1 && makepkg -sirc && cd ..}
 
 #-- DISPLAY --#
 
@@ -57,4 +57,6 @@ alias radio="mpv $RADIO --volume=50"
 #-- ETC --#
 
 alias virt-start-default-network="$ROOTER virsh net-start default"
+alias usb-mount='udisksctl mount -b'
+alias usb-umount='udisksctl umount -b'
 
