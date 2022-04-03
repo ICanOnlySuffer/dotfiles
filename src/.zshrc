@@ -20,7 +20,7 @@ PROMPT_DIRTRIM=1
 #-- PROGRAMMING --#
 
 alias clip='xclip -selection clip'
-alias rm='trash-rm'
+alias rm='trash-put'
 
 # shell
 
@@ -55,5 +55,5 @@ alias light="$ROOTER light -S"
 
 alias virt-start-default-network="$ROOTER virsh net-start default"
 alias usb-mount='udisksctl mount -b'
-alias usb-umount='udisksctl umount -b'
+alias usb-umount='udisksctl unmount -b'
 
