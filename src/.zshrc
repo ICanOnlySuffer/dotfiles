@@ -2,23 +2,25 @@
 #-- ENVIRONMENT --#
 
 export LS_COLORS='di=0;36:ex=1;36:ln=1;37'
-alias ptree='ptree -SndPcO'
+export EDITOR=nvim
+export ROOTER=sudo
+
 alias tree='tree --dirsfirst -v'
+alias ptv='ptv -SndPcM'
 alias ls='ls --group-directories-first --color=auto'
 
 HISTFILE=~/.zsh-history
 HISTSIZE=512
 SAVEHIST=512
 
-EDITOR=nvim
-ROOTER=sudo
 
 PS1="<%F{cyan}%(3~|%-1~/.../%1~|%2~)%f> "
 PROMPT_DIRTRIM=1
 
 #-- PROGRAMMING --#
 
-alias clp='xclip -selection clip'
+alias clip='xclip -selection clip'
+alias rm='trash-rm'
 
 # shell
 
@@ -48,11 +50,6 @@ aur () {git clone https://aur.archlinux.org/$1}
 
 xdisplay=`xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1`
 alias light="$ROOTER light -S"
-
-#-- FUN --#
-
-RADIO='http://playerservices.streamtheworld.com/api/livestream-redirect/KINK.mp3'
-alias radio="mpv $RADIO --volume=50"
 
 #-- ETC --#
 
