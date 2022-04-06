@@ -5,6 +5,9 @@ export LS_COLORS='di=0;36:ex=1;36:ln=1;37'
 export EDITOR=nvim
 export ROOTER=sudo
 
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
 alias tree='tree --dirsfirst -v'
 alias ptv='ptv -SndPcM'
 alias ls='ls --group-directories-first --color=auto'
@@ -13,9 +16,7 @@ HISTFILE=~/.zsh-history
 HISTSIZE=512
 SAVEHIST=512
 
-
 PS1="<%F{cyan}%(3~|%-1~/.../%1~|%2~)%f> "
-PROMPT_DIRTRIM=1
 
 #-- PROGRAMMING --#
 
