@@ -4,12 +4,17 @@
 set $mod Mod4
 
 # dracula theme
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4 #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36 #282A36
+client.focused          #0E101A #0E101A #F8F8F2 #0E101A #0E101A
+client.focused_inactive #0E101A #0E101A #BFBFBF #0E101A #0E101A
+client.unfocused        #0E101A #0E101A #BFBFBF #0E101A #0E101A
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555 #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36 #282A36
 client.background       #F8F8F2
+#client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4 #6272A4
+#client.focused_inactive #44475A #44475A #F8F8F2 #44475A #44475A
+#client.focused          #44475A #44475A #F8F8F2 #44475A #44475A
+#client.focused_inactive #282A36 #282A36 #BFBFBF #282A36 #282A36
+#client.unfocused        #282A36 #282A36 #BFBFBF #282A36 #282A36
 
 # font
 font pango:Source Code Pro 8
@@ -71,9 +76,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -98,7 +103,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -110,7 +114,6 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -122,24 +125,18 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-msg exit"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
 	# These bindings trigger as soon as you enter the resize mode
-	
-	bindsym j resize shrink width 10 px or 10 ppt
-	bindsym k resize grow height 10 px or 10 ppt
-	bindsym l resize shrink height 10 px or 10 ppt
-	bindsym semicolon resize grow width 10 px or 10 ppt
-	
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
 	bindsym Up resize shrink height 10 px or 10 ppt
@@ -156,19 +153,19 @@ bindsym $mod+r mode "resize"
 bar {
 	status_command i3status
 	colors {
-		background #282A36
+		background #0E101A
 		statusline #F8F8F2
 		separator  #44475A
 		
 		focused_workspace  #44475A #44475A #F8F8F2
-		active_workspace   #282A36 #44475A #F8F8F2
-		inactive_workspace #282A36 #282A36 #BFBFBF
+		active_workspace   #0E101A #44475A #F8F8F2
+		inactive_workspace #0E101A #0E101A #BFBFBF
 		urgent_workspace   #FF5555 #FF5555 #F8F8F2
 		binding_mode       #FF5555 #FF5555 #F8F8F2
 	}
 }
 
 # dmenu with dracula theme
-bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Source Code Pro:Regular:pixelsize=12' -p dmenu"
-bindsym $mod+b exec brave
+bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#0E101A' -sb '#44475A' -sf '#F8F8F2' -fn 'Source Code Pro:Regular:size=8' -p dmenu"
+bindsym $mod+b exec "brave"
 
