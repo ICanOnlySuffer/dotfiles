@@ -1,9 +1,10 @@
 URxvt.title: Terminal
 URxvt.scrollBar: false
 URxvt.termName: screen-256color
-URxvt.background: Black
+URxvt.background: #0E101A
 URxvt.foreground: White
-URxvt*font: xft:Source Code Pro:regular:pixelsize=12
+URxvt*font: xft:Source Code Pro:Regular:size=8
+URxvt.letterSpace: -1
 URxvt.color0: #000000
 URxvt.color1: #cc0000
 URxvt.color2: #4e9a06
@@ -22,7 +23,7 @@ URxvt.color14: #34e2e2
 URxvt.color15: #eeeeec
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: true
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.C-Shift-c: perl:clipboard:copy
+URxvt.keysym.C-Shift-v: perl:clipboard:paste
 URxvt.keysym.M-Up: command:\033]720;1\007
 URxvt.keysym.M-Down: command:\033]721;1\007
