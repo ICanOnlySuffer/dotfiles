@@ -2,10 +2,10 @@
 #-- ENVIRONMENT --#
 
 export LS_COLORS='di=0;36:ex=1;36:ln=1;37'
-export EDITOR=nvim
 export ROOTER=sudo
+export EDITOR=vim
 
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export GEM_HOME=`ruby -e 'puts Gem.user_dir'`
 export PATH="$PATH:$GEM_HOME/bin"
 
 alias tree='tree --dirsfirst -v'
@@ -16,21 +16,16 @@ HISTFILE=~/.zsh-history
 HISTSIZE=512
 SAVEHIST=512
 
-PS1="<%F{cyan}%(3~|%-1~/.../%1~|%2~)%f> "
+export PS1="<%F{cyan}%3~%f> "
 
 #-- PROGRAMMING --#
 
-alias clip='xclip -selection clip'
 alias rm='trash-put'
 
 # shell
 
 alias edit="$EDITOR $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
-
-# assembly
-
-alias asm='nasm -f elf64'
 
 # git
 
@@ -45,7 +40,12 @@ alias undo='git reset --soft HEAD~1'
 
 alias apr='asp export'
 aur () {git clone https://aur.archlinux.org/$1}
-# yay () {aur $1 && cd $1 && makepkg -sirc && cd ..}
+aur-psh () {
+	makepkg --printsrcinfo > .SRCINFO &&
+	add . &&
+	commit -m update
+	push
+}
 
 #-- DISPLAY --#
 

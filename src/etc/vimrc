@@ -10,6 +10,7 @@
 " properly set to work with the Vim-related packages.
 runtime! archlinux.vim
 
+set encoding=utf-8
 set sts=4 ts=4 sw=4
 set number guicursor= noet noai nocin nosi inde=
 filetype indent plugin off

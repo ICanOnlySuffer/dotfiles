@@ -10,11 +10,6 @@ client.unfocused        #0E101A #0E101A #BFBFBF #0E101A #0E101A
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555 #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36 #282A36
 client.background       #F8F8F2
-#client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4 #6272A4
-#client.focused_inactive #44475A #44475A #F8F8F2 #44475A #44475A
-#client.focused          #44475A #44475A #F8F8F2 #44475A #44475A
-#client.focused_inactive #282A36 #282A36 #BFBFBF #282A36 #282A36
-#client.unfocused        #282A36 #282A36 #BFBFBF #282A36 #282A36
 
 # font
 font pango:Source Code Pro 8
@@ -168,4 +163,6 @@ bar {
 # dmenu with dracula theme
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#0E101A' -sb '#44475A' -sf '#F8F8F2' -fn 'Source Code Pro:Regular:size=8' -p dmenu"
 bindsym $mod+b exec "brave"
+
+set $Locker i3lock && sleep 1
 
