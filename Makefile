@@ -1,16 +1,20 @@
 
-CONFIG = $(addprefix $(HOME)/.config/, nvim i3 i3status)
-RCS = $(HOME)/.vimrc $(HOME)/.zshrc $(HOME)/.Xdefaults
-TARGETS = $(CONFIG) $(RCS)
+ifeq ($(shell id -u), 0)
+TARGETS = /etc/vimrc
+else
+CONFIG = $(addprefix $(HOME)/.config/, i3 i3status)
+DOT_FILES = $(HOME)/.zshrc $(HOME)/.Xdefaults
+TARGETS = $(CONFIG) $(DOT_FILES)
+endif
 
-all: $(TARGETS)
+install: $(TARGETS)
 
-$(HOME)/.config/%: src/.config/%
-	cp -rf $< $@
+/etc/%: src/etc/%
+	cp -r $< $@
 
-$(HOME)/%: src/%
-	cp $< $@
+$(HOME)/.config/.%: src/config/%
+	cp -r $< $@
 
-clean:
-	rm -rf $(TARGETS)
+$(HOME)/.%: src/%
+	cp -r $< $@
 
