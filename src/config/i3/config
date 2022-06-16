@@ -1,5 +1,5 @@
 
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguide.html
 
 set $mod Mod4
 
@@ -14,11 +14,13 @@ client.background       #F8F8F2
 # font
 font pango:Source Code Pro 8
 
-# Start XDG autostart .desktop files using dex. (https://wiki.archlinux.org/index.php/XDG_Autostart)
+# Start XDG autostart .desktop files using dex.
+# (https://wiki.archlinux.org/index.php/XDG_Autostart)
 exec --no-startup-id dex --autostart --environment i3
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to
+# lock the screen before suspend. Use loginctl lock-session to lock
+# your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Use pactl to adjust volume in PulseAudio.
@@ -70,11 +72,6 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -84,11 +81,8 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# Define names for default workspaces for which we configure key
+# bindings later on.
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -123,19 +117,20 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+
+# restart i3 inplace
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-msg exit"
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
+# resize window
 mode "resize" {
 	# These bindings trigger as soon as you enter the resize mode
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Left resize shrink width 12 px
+	bindsym Down resize grow height 12 px
+	bindsym Up resize shrink height 12 px
+	bindsym Right resize grow width 12 px
 	
 	# back to normal: Enter or Escape or $mod+r
 	bindsym Return mode "default"
@@ -163,6 +158,4 @@ bar {
 # dmenu with dracula theme
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#0E101A' -sb '#44475A' -sf '#F8F8F2' -fn 'Source Code Pro:Regular:size=8' -p dmenu"
 bindsym $mod+b exec "brave"
-
-set $Locker i3lock && sleep 1
 

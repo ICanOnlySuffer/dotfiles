@@ -15,7 +15,9 @@ general {
 	interval = 5
 }
 
+# only uncomment if you want to doxx yourself:
 # order += "ipv6"
+
 order += "wireless _first_"
 # order += "ethernet _first_"
 order += "battery all"
@@ -55,3 +57,4 @@ memory {
 tztime local {
 	format = "%Y-%m-%d %H:%M:%S "
 }
+
