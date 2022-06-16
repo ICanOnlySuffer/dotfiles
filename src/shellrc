@@ -1,0 +1,49 @@
+
+#-- ENVIRONMENT --#
+
+export LS_COLORS='di=0;36:ex=1;36:ln=1;37'
+export ROOTER=sudo
+export EDITOR=vim
+
+export GEM_HOME=`ruby -e 'puts Gem.user_dir'`
+export PATH="$PATH:$GEM_HOME/bin:$HOME/.cargo/bin"
+
+alias tree='tree --dirsfirst -v'
+alias pdl='pdl -SndPcM'
+alias ls='ls --group-directories-first --color=auto'
+
+#-- PROGRAMMING --#
+
+alias rm='trash-put'
+
+# git
+
+alias add='git add'
+alias commit='git commit'
+alias status='git status'
+alias push='git push'
+alias pull='git pull'
+alias undo='git reset --soft HEAD~1'
+
+#-- PACKAGES --#
+
+alias apr='asp export'
+aur () {
+	git clone https://aur.archlinux.org/$1
+}
+aur-psh () {
+	makepkg --printsrcinfo > .SRCINFO &&
+	add . &&
+	commit -m $1
+	push
+}
+
+#-- ETC --#
+
+alias virt-start-default-network="$ROOTER virsh net-start default"
+alias usb-mount='udisksctl mount -b'
+alias usb-umount='udisksctl unmount -b'
+mp4-reduce () {
+	ffmpeg -i $1 -vcodec libx264 -crf 24 $2
+}
+
