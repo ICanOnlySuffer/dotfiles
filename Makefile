@@ -2,19 +2,23 @@
 ifeq ($(shell id -u), 0)
 TARGETS = /etc/vimrc
 else
-CONFIG = $(addprefix $(HOME)/.config/, i3 i3status)
-DOT_FILES = $(HOME)/.zshrc $(HOME)/.Xdefaults
-TARGETS = $(CONFIG) $(DOT_FILES)
+CONFIG = $(addprefix $(HOME)/.config/,i3 i3status)
+DOTFILES = $(addprefix $(HOME)/.,shellrc zshrc bashrc Xdefaults)
+
+TARGETS = $(CONFIG) $(DOTFILES)
 endif
 
 install: $(TARGETS)
 
-/etc/%: src/etc/%
-	cp -r $< $@
-
-$(HOME)/.config/.%: src/config/%
+$(HOME)/.config/%: src/config/%
+	rm -rf $@
 	cp -r $< $@
 
 $(HOME)/.%: src/%
+	rm -rf $@
+	cp -r $< $@
+
+/etc/%: src/etc/%
+	rm -rf $@
 	cp -r $< $@
 
